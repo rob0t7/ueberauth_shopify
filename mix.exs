@@ -4,19 +4,20 @@ defmodule UeberauthShopify.Mixfile do
   @version "0.1.2"
   @url "https://github.com/alistairstead/ueberauth_shopify"
 
-
   def project do
-    [app: :ueberauth_shopify,
-     version: @version,
-     elixir: "~> 1.3",
-     package: package(),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     source_url: @url,
-     homepage_url: @url,
-     description: description(),
-     deps: deps(),
-     docs: docs()]
+    [
+      app: :ueberauth_shopify,
+      version: @version,
+      elixir: "~> 1.3",
+      package: package(),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      source_url: @url,
+      homepage_url: @url,
+      description: description(),
+      deps: deps(),
+      docs: docs()
+    ]
   end
 
   # Configuration for the OTP application
@@ -36,10 +37,12 @@ defmodule UeberauthShopify.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:oauth2, "~> 0.8.0"},
-     {:ueberauth, "~> 0.4.0"},
-     {:earmark, "~> 1.0", only: :dev},
-     {:ex_doc, "~> 0.14.0", only: :dev}]
+    [
+      {:oauth2, "~> 0.9.0"},
+      {:ueberauth, "~> 0.5.0"},
+      {:earmark, "~> 1.0", only: :dev},
+      {:ex_doc, "~> 0.14.0", only: :dev}
+    ]
   end
 
   defp docs do
@@ -57,9 +60,11 @@ defmodule UeberauthShopify.Mixfile do
   end
 
   defp package do
-    [files: ["lib", "mix.exs", "README.md", "LICENSE"],
+    [
+      files: ["lib", "mix.exs", "README.md", "LICENSE"],
       maintainers: ["Alistair Stead"],
       licenses: ["MIT"],
-      links: %{"GitHub": @url}]
+      links: %{GitHub: @url}
+    ]
   end
 end
